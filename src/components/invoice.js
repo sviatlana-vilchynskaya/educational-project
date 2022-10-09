@@ -11,7 +11,6 @@ export default function Invoices() {
             className="bg-gray-200"
             to={`/invoices/${invoice.number}`}
             key={invoice.number}
-            target="_blank"
           >
             {invoice.name}
           </Link>
