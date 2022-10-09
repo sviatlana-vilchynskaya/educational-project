@@ -1,10 +1,22 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import { getInvoices } from './data';
 
 export default function Invoices() {
+  let invoices = getInvoices();
   return (
-    <div className="text-center">
-      <h1>Invoices</h1>
+    <main className="text-center">
+      <div className="flex flex-col gap-3">
+        {invoices.map((invoice) => (
+          <Link
+            className="bg-gray-200"
+            to={`/invoices/${invoice.number}`}
+            key={invoice.number}
+          >
+            {invoice.name}
+          </Link>
+        ))}
+      </div>
       <Outlet></Outlet>
-    </div>
+    </main>
   );
 }
